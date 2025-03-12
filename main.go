@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 type Getter[T1 any, T2 any] interface {
-	get1() *T1
 	get2() *T2
 }
 
@@ -17,9 +16,7 @@ type Container2[T1 any, T2 any] struct {
 	v1 *T1
 }
 
-func (c Container1[T1, T2]) get1() *T1 { return c.v1 }
 func (c Container1[T1, T2]) get2() *T2 { return c.v2 }
-func (c Container2[T1, T2]) get1() *T1 { return c.v1 }
 func (c Container2[T1, T2]) get2() *T2 { return c.v2 }
 
 func transmute[T1 any, T2 any](v1 *T1) *T2 {
